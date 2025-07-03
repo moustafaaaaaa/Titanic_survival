@@ -1,10 +1,9 @@
 import streamlit as st
 import numpy as np
-import pickle
+import joblib
+model = joblib.load('titanic_model.pkl')
 
-# Load model and scaling values
-model = pickle.load(open('titanic_model.pkl', 'rb'))
-age_max, fare_min, fare_max = pickle.load(open('scaling_values.pkl', 'rb'))
+age_max, fare_min, fare_max = joblib.load(open('scaling_values.pkl', 'rb'))
 
 st.title("🚢 Titanic Survival Predictor")
 
